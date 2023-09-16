@@ -7,33 +7,32 @@ public class Loop implements LoopRunnable {
 
     private int start;
     private int end;
-    private int includes;
-    private LoopRunnable runnable;
+    private int ownCount;
+    private LoopRunnable runningRunnable;
 
     public Loop(int start, int end, int includes, LoopRunnable runnable) {
+        count++;
+        ownCount = count - 1;
+
         this.start = start;
         this.end = end;
-        this.includes = includes;
-        this.runnable = runnable;
+
+        if (ownCount >= includes) {
+            this.runningRunnable = runnable;
+        } else {
+            this.runningRunnable = new Loop(start, end, includes, runnable);
+        }
     }
 
     @Override
     public void run(List<Integer> indexes) {
-        count++;
-
-        int ownCount = count;
-
         for (int i = start; i < end; i++) {
-            setIndex(indexes, ownCount, i);
-            if (count >= includes) {
-                runnable.run(indexes);
-            } else {
-                new Loop(start, end, includes, runnable).run(indexes);
-            }
+            setIndex(indexes, i);
+            runningRunnable.run(indexes);
         }
     }
 
-    private void setIndex(List<Integer> indexes, int ownCount, int index) {
+    private void setIndex(List<Integer> indexes, int index) {
         if (indexes.size() <= ownCount) {
             indexes.add(index);
         } else {
