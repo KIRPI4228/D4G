@@ -3,8 +3,6 @@ package ru.KIRPI4228.d4g;
 import ru.KIRPI4228.d4g.console.Console;
 import ru.KIRPI4228.d4g.console.ConsoleColor;
 
-import java.io.IOException;
-
 public class D4G {
     public static void main(final String[] args) {
         Console.WriteLine(ConsoleColor.BLUE + "Welcome to " + ConsoleColor.PURPLE + "D4G" + ConsoleColor.BLUE + " brute force generator");
