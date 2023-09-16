@@ -12,7 +12,7 @@ step 2:
 	
 step 3:
 	
-    ./gradlew clean build
+    ./gradlew build
 	
 step 4:
 
