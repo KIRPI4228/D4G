@@ -9,15 +9,8 @@ repositories {
     mavenCentral()
 }
 
-dependencies {
-}
-
 jar {
     manifest {
         attributes 'Main-Class': 'ru.KIRPI4228.d4g.D4G'
     }
-}
-
-test {
-    useJUnitPlatform()
 }
