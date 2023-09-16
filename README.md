@@ -1,7 +1,7 @@
 # D4G
 Open source brute force generator that generates all possible passwords from specified  length and symbols in one file **for linux**
 
-##Installation for linux
+## Installation for linux
 step 1:
 
     git clone https://github.com/KIRPI4228/D4G.git
